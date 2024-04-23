@@ -30,3 +30,10 @@ Grafik 'Queued messages' yang ditampilkan menggambarkan peningkatan jumlah pesan
 
 Grafik 'Message Rates' menampilkan dua aspek penting: laju pesan yang dipublikasikan (Publish rate) dan laju pesan yang diakui oleh consumer (Acknowledge rate).
 Terlihat bahwa ada peningkatan tajam dalam laju pengiriman pesan setiap kali aplikasi publisher dijalankan. Hal ini menandakan bahwa publisher berhasil mengirimkan event ke queue dengan cepat. Namun, tingkat pengakuan pesan oleh consumer cenderung lebih stabil dan terjadi dengan laju yang lebih lambat, yang menunjukkan bahwa consumer sedang mengolah pesan-pesan tersebut secara bertahap.
+
+
+
+![](https://imgur.com/twbRBsn.png)
+![](https://imgur.com/RWAyoIW.png)
+
+Setelah menjalankan program subscriber di empat terminal yang berbeda, kita dapat mengamati melalui konsol bahwa pemrosesan event terdistribusi secara merata dan berlangsung secara bersamaan. Setiap subscriber mengambil peran dalam menangani pesan yang berbeda, dengan masing-masing memproses bagian dari aliran pesan yang diterima. Grafik 'Queued messages' pada RabbitMQ Management Interface menggambarkan ini dengan penurunan yang signifikan, dari tujuh pesan yang terantri menjadi hanya satu. Ini menandakan bahwa setiap subscriber secara aktif memproses pesan, bekerja secara sinkron dan efisien.
